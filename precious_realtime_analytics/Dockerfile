@@ -11,6 +11,9 @@ RUN apt-get update && apt-get install -y wget unzip
 RUN wget https://github.com/duckdb/duckdb/releases/download/v1.0.0/duckdb_cli-linux-amd64.zip \
     && unzip duckdb_cli-linux-amd64.zip \
     && rm duckdb_cli-linux-amd64.zip 
+    
+#unzip csv file for dataset 
+RUN unzip online_retail.zip
 
 # Copy the requirements file into the container at /app
 COPY requirements.txt /analytics/
