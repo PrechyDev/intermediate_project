@@ -1,0 +1,18 @@
+services:
+  data_ingestion:
+    build: .
+    command: python data_ingestion.py
+    volumes:
+      - analytics_data:/analytics
+
+  duckdb_cli:
+    build: .
+    command: ./duckdb /retail.db
+    depends_on:
+      - data_ingestion
+    volumes:
+      - analytics_data:/analytics
+
+#to persist data so duck_cli can use retail.db from data_ingestion
+volumes:
+  analytics_data:
