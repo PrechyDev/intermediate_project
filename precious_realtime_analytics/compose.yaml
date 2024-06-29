@@ -1,13 +1,12 @@
 services:
   data_ingestion:
     build: .
-    command: python data_ingestion.py
     volumes:
       - analytics_data:/analytics
 
   duckdb_cli:
     build: .
-    command: ./duckdb /retail.db
+    command: tail -f /dev/null  # Keeps the container running to run duckdb cli manually
     depends_on:
       - data_ingestion
     volumes:
