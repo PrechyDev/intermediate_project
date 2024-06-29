@@ -28,5 +28,9 @@ This project requires that the entire project be dockerized alongside the duckdb
 <br>
 All the requirements are listed in the `requirements.txt`.
 <br>
-To build the docker container, run `docker compose up`. After building and running, the duckdb cli is opened.
-
+To build the docker container, run `docker compose up`. This would automatically run the python ingestion script and also keep the container running. <br>
+Access the duckdb_cli container and open an interactive shell using the command - `docker compose exec duckdb_cli /bin/sh
+`. You can then run the duckdb CLI using `./duckdb /analytics/retail.db
+`. This should allow you to run sql commands in the duckdb cli. 
+<br>
+To test, run `SELECT * FROM finance_data LIMIT 5`.
