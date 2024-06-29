@@ -1,0 +1,6 @@
+polars
+duckdb
+pyarrow #for loading a polars dataframe to duckdb
+sqlalchemy #for ORM
+duckdb-engine #for ORM
+pandas #dependecy for sqlalchemy
